@@ -132,7 +132,18 @@ const Navbar = () => {
       <div className="w-full border px-[200px]">
         <div className="flex justify-between items-center p-[20px]">
           <div className="flex gap-[20px] items-center">
-            <div className="border p-[10px]">All Categories</div>
+            <details className="dropdown">
+              <summary className=" m-1 border p-[10px]">All Categories</summary>
+              <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                <li><a>Wing Chair</a></li>
+                <li><a>Wooden Chair</a></li>
+                <li><a>Desk Chair</a></li>
+                <li><a>Park Chair</a></li>
+                <li><a>Devan Chair</a></li>
+                <li><a>Bed</a></li>
+              </ul>
+            </details>
+           
             <a href='' className='hover:text-blue-400'>Home</a>
             <a href='' className='hover:text-blue-400'>Shop</a>
             <a href='' className='hover:text-blue-400'>Product</a>
