@@ -84,7 +84,7 @@ import Group from '../assets/Group.png';
 import Heart from '../assets/Heart.svg';
 import Logo from '../assets/Logo.png';
 import Info from '../assets/Info.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -119,7 +119,10 @@ const Navbar = () => {
               </div>
             </div>
             <div className="w-[50px] bg-white p-[10px] border-none rounded-[4px] items-center justify-center flex gap-[5px]">
-              <img src={Heart} alt="" />
+            <NavLink to={"/yrak"} >
+                                
+                                <img src={Heart} alt="yurak" />
+                                </NavLink>  
             </div>
             <div className="w-[50px] bg-white p-[10px] border-none rounded-[4px] items-center justify-center flex gap-[5px]">
               <a href="/login">
