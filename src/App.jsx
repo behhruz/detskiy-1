@@ -10,6 +10,7 @@ import Categories from "./Components/Category";
 import Xm from "./Components/Cards";
 import Carusel from "./Components/Carousel";
 import Yurak from "./Components/yurak";
+import PrivateRoute from "./Dashboard/PrivateRoute";
 
 function App() {
   return (

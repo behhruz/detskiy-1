@@ -8,14 +8,16 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSignIn = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents the default form submission (page reload)
 
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find((user) => user.email === email && user.password === password);
 
     if (user) {
       if (user.approved) {
-        navigate('/home'); // Navigate to home on successful login
+        // Store authentication status in localStorage if approved
+        localStorage.setItem('isAuthenticated', 'true');
+        navigate('/home');
       } else {
         setError('Your account is not approved yet.');
       }
@@ -62,7 +64,7 @@ const Login = () => {
             </a>
           </div>
           <button
-            type="submit"
+            type="submit" // Submits the form via the onSubmit handler
             className="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600"
           >
             Sign In →
