@@ -1,10 +1,15 @@
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-import { BrowserRouter } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom"; // BrowserRouter here
+import App from "./App";
+import "./Components/i18n"; // Ensure this is correct
 
-createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />;
-  </BrowserRouter>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>  {/* Wrap your App with BrowserRouter */}
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 );
