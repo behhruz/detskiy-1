@@ -11,6 +11,7 @@ import Xm from "./Components/Cards";
 import Carusel from "./Components/Carousel";
 import Yurak from "./Components/yurak";
 import PrivateRoute from "./Dashboard/PrivateRoute";
+import Proekt from "./Components/Proyekt";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/admin" element={<AdminPanel />} />
       <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="/yrak" element={<Yurak    />} />
+      <Route path="/yrak" element={<Yurak />} />
       <Route
         path="/home"
         element={
@@ -31,6 +32,7 @@ function App() {
               <Ot />
               <Categories />
               <Xm />
+              <Proekt />
             </main>
           </>
         }
