@@ -9,7 +9,11 @@ import Ot from "./Components/ot";
 import Categories from "./Components/Category";
 import Xm from "./Components/Cards";
 import Carusel from "./Components/Carousel";
-import Pages from "./Components/Pages";
+import Home from "./page/Home";
+import About from "./page/About";
+import Shop from "./page/Shop";
+import Product from "./page/Product";
+import Pages from "./page/Pages";
 
 function App() {
   return (
@@ -19,7 +23,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/pages" element={<Pages />} />
-        
+
         <Route path="/" element={<Navigate to="/home" />} />
 
         <Route
@@ -32,13 +36,47 @@ function App() {
                 <Portners />
                 <Ot />
                 <Categories />
-                <Xm />
                 {/* <Pages/> */}
               </main>
             </>
           }
         />
-        
+        <Route
+          path="/shop"
+          element={
+            <>
+              <Navbar />
+              <Xm/>
+            </>
+          }
+        />
+        <Route
+          path="/product"
+          element={
+            <>
+              <Navbar />
+              <Product />
+            </>
+          }
+        />
+        <Route
+          path="/pages"
+          element={
+            <>
+              <Navbar />
+              <Pages />
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <>
+              <Navbar />
+              <About />
+            </>
+          }
+        />
       </Routes>
     </>
   );
