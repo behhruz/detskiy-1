@@ -10,15 +10,23 @@ import Categories from "./Components/Category";
 import Xm from "./Components/Cards";
 import Carusel from "./Components/Carousel";
 import PrivateRoute from "./Dashboard/PrivateRoute";
+import ProductList from "./Components/ProductList";
 
 function App() {
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
+
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      {/* Login and Register Routes */}
+      <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/home" />} />
+      <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/home" />} />
+
+      {/* Admin Route */}
       <Route path="/admin" element={<AdminPanel />} />
-      <Route 
-        path="/home" 
+
+      {/* Home Route with Protected Route */}
+      <Route
+        path="/home"
         element={
           <PrivateRoute>
             <>
@@ -32,9 +40,22 @@ function App() {
               </main>
             </>
           </PrivateRoute>
-        } 
+        }
       />
-      <Route path="/" element={<Navigate to="/home" />} />
+
+      {/* Redirect to Login if not authenticated */}
+      <Route path="/" element={!isAuthenticated ? <Navigate to="/login" /> : <Navigate to="/home" />} />
+
+      {/* Product List Route */}
+      <Route
+        path="/products/:category"
+        element={
+          <>
+            <Navbar />
+            <ProductList />
+          </>
+        }
+      />
     </Routes>
   );
 }
